@@ -15,7 +15,7 @@ room1(playerName);
 
 
 
-static void room2(string name)
+static void room2 (string name)
 {
     Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
     Console.WriteLine("");
@@ -47,7 +47,7 @@ static void room2(string name)
 
 }
 
-static void room1(string name)
+static void room1 (string name)
 {
     Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / Right Door / Left Door / Look Around Again");
     string choice = Console.ReadLine();
@@ -73,85 +73,95 @@ static void room1(string name)
     }
 }
 
-static void room3 (string name)
+static void room4 (string name)
 {
-    Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
+    string room = "room1";
+    Console.WriteLine("You wake up on a cold, hard floor in a dark room. Your head is pounding, and you can't remember how you got here.");
     Console.WriteLine("");
-    Console.WriteLine("'Room 3'");
-}string room = "room1";
-Console.WriteLine("You wake up on a cold, hard floor in a dark room. Your head is pounding, and you can't remember how you got here.");
-Console.WriteLine("");
-Console.WriteLine("Actually, you can't remember anything...");
-Console.WriteLine("");
-Console.WriteLine("Hey, what's your name?");
-string playerName = Console.ReadLine();
-Console.WriteLine("");
-Console.WriteLine("You look around the room. ");
-room1(playerName);
-
-
-
-
-
-
-
-static void room2(string name)
-{
-    Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
+    Console.WriteLine("Actually, you can't remember anything...");
     Console.WriteLine("");
-    Console.WriteLine("'Room 2'");
+    Console.WriteLine("Hey, what's your name?");
+    string playerName = Console.ReadLine();
     Console.WriteLine("");
-    Console.WriteLine("Instantly, you notice an object of quite substantial size sitting in the corner. You squint, and you realise it is a chest, filled with expensive-looking jewels and silver. ");
-    Console.WriteLine("");
-    Console.WriteLine("You could see how much of it you can fit in your pockets, or exit through the door. What do you do, {0}? Loot / Leave", name);
-    string choice = Console.ReadLine();
-    Console.WriteLine("");
-    if (choice == "Leave")
+    Console.WriteLine("You look around the room. ");
+    room1(playerName);
+
+
+
+
+
+
+
+    static void room2 (string name)
     {
-        Console.WriteLine("You take the only other door out. ");
+        Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
         Console.WriteLine("");
-    }
-    else
-    {
-        Console.WriteLine("You eagerly approach the chest, hands shaking with anticipation, but something jumps from the chest...");
+        Console.WriteLine("'Room 2'");
         Console.WriteLine("");
-        Console.WriteLine("It's... a goat...");
+        Console.WriteLine("Instantly, you notice an object of quite substantial size sitting in the corner. You squint, and you realise it is a chest, filled with expensive-looking jewels and silver. ");
         Console.WriteLine("");
-        Console.WriteLine("It's only small, as tall as your knee, and you decide that this is better than treasure. A new companion! What do you name it? ");
-        string goatName = Console.ReadLine();
+        Console.WriteLine("You could see how much of it you can fit in your pockets, or exit through the door. What do you do, {0}? Loot / Leave", name);
+        string choice = Console.ReadLine();
         Console.WriteLine("");
-        Console.WriteLine("You pick {0} up and decide to leave. Y'all are inseparable already!", goatName);
-        Console.WriteLine("");
-        room3(name);
+        if (choice == "Leave")
+        {
+            Console.WriteLine("You take the only other door out. ");
+            Console.WriteLine("");
+        }
+        else
+        {
+            Console.WriteLine("You eagerly approach the chest, hands shaking with anticipation, but something jumps from the chest...");
+            Console.WriteLine("");
+            Console.WriteLine("It's... a goat...");
+            Console.WriteLine("");
+            Console.WriteLine("It's only small, as tall as your knee, and you decide that this is better than treasure. A new companion! What do you name it? ");
+            string goatName = Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("You pick {0} up and decide to leave. Y'all are inseparable already!", goatName);
+            Console.WriteLine("");
+            room3(name);
+        }
+
     }
 
-}
-
-static void room1(string name)
-{
-    Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / Right Door / Left Door / Look Around Again");
-    string choice = Console.ReadLine();
-    if (choice == "Left Door")
+    static void room1 (string name)
     {
-        room2(name);
+        Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / Right Door / Left Door / Look Around Again");
+        string choice = Console.ReadLine();
+        if (choice == "Left Door")
+        {
+            room2(name);
+        }
+        else if (choice == "Right Door")
+        {
+            room4(name);
+        }
+        else if (choice == "Look Around")
+        {
+            Console.WriteLine("You double check you haven't missed anything, and check behind. You can make out a secret door *gasp*");
+            Console.WriteLine("You attempt to go through, but it requires a code... better come back later...");
+            Console.WriteLine("Maybe the code will be in one of the other rooms.");
+        }
+        else
+        {
+            room3(name);
+        }
     }
-    else if (choice == "Right Door")
+
+    static void room4 (string name)
     {
         Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
         Console.WriteLine("");
         Console.WriteLine("'Room 4'");
-    }
-    else if (choice == "Look Around")
-    {
-        Console.WriteLine("You double check you haven't missed anything, and check behind. You can make out a secret door *gasp*");
-        Console.WriteLine("You attempt to go through, but it requires a code... better come back later...");
-        Console.WriteLine("Maybe the code will be in one of the other rooms.");
-    }
-    else
-    {
-        room3(name);
+        Console.WriteLine("");
+        Console.WriteLine("You look around: the room is pretty big, but the space is taken up mostly by a massive swimming pool. The water looks so cool and refreshing, and you are so sweaty and hot, but the water a perfect blue, it looks so refreshing, but also this is a dungeon and this may not be the safest place to let your guard down, but again, the water is...");
+        Console.WriteLine("");
+        Console.WriteLine("...");
+        Console.WriteLine("*AHEM* - Look, you know the drill. Do you got for a swim or leave?");
     }
 }
+
+
 
 static void room3 (string name)
 {
