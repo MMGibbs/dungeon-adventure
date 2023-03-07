@@ -88,18 +88,31 @@ public class HelloWorld
         Console.WriteLine("");
         Console.WriteLine("'Room 4'");
         Console.WriteLine("");
-        Console.WriteLine("You look around: the room is pretty big, but the space is taken up mostly by a massive swimming pool. The water looks so cool and refreshing, and you are so sweaty and hot, but the water is coloured a perfect crystal blue, it looks so refreshing, but also this is a dungeon and this may not be the safest place to let your guard down, but again, the water is...");
+        Console.WriteLine("You look around: the room is pretty big, but the space is taken up mostly by a massive swimming pool. The water looks so cool and refreshing, and you are so sweaty and hot, but the water is coloured a perfect crystal blue, it's as if it's calling to you, but also this is a dungeon and this may not be the safest place to let your guard down, but again, the water is...");
         Console.WriteLine("");
         Console.WriteLine("...");
         Console.WriteLine("*AHEM* - Look, you know the drill. Do you got for a swim or leave?");
         string choice = Console.ReadLine();
         if (choice == "Swim")
         {
-          Console.WriteLine("The pool is irresistable. You jump in, and the icy water cools your entire body, relaxation sweeping over you in waves. You begin to float on your back, your eyes close almost involuntarily. You could fall asleep when you notice a dark, thin shape appear on the water's surface. ");
+          Console.WriteLine("The pool is irresistable. You jump in, and the icy water cools your entire body, relaxation sweeping over you in waves. You begin to float on your back, and your eyes close almost involuntarily. You could fall asleep when you notice a dark, thin shape appear on the water's surface. ");
           Console.WriteLine("");
           Console.WriteLine("You shoot up, adrenaline pumping, and squint. The object becomes clear; it's a fin.");
           Console.WriteLine("");
-          Console.WriteLine("You learn loads in school, including many ultimately useless facts, but one thing they don't teach you is how to escape becoming shark feed when you're in the middle of a large pool in a dark room where no-one can hear you scream. Why is it even here?! How did neither of us not notice it sooner?! I guess you could try to swim out to the edges, get out of the water, but the shark could catch up, then you're done. Maybe you could just kinda... drift there? It might lose interest. Or it will see an easy kill. Good luck, {0}, my friend, choose wisely. Freeze/ SWIIIM!", name);
+          Console.WriteLine("One thing they usually don't teach you in school is how to escape becoming shark feed when you're in the middle of a large, deep pool in a dark room where no-one can hear you scream. Why is it even here?! How did neither of us notice it sooner?! I guess you could try to swim out to the edges, get out of the water, but what if it chases you?  Then you're dooooone, dude. Maybe you could just kinda... drift there? It might lose interest. Or it will see an easy kill. Or, maybe, it will just want to grab a little taste to figure out whether you're food or not. Good luck, {0}, my friend, choose wisely. Freeze/ SWIIIM!", name);
+              choice = Console.ReadLine();
+              if (choice == "SWIIIM!")
+              {
+                  Console.WriteLine("You wade backwards, eyes set on the finned beast, in hopes to get out the water before you become breakfast. After haveing the most intense staring competition of your life, you find yourself back on the ground as the shark wanders away. Guess you are a wise guy.");
+              }
+              else
+              {
+                  Console.WriteLine("You just think to freeze. There seems to be no chance of outswimming it, so you decide to wait for it to lose interest. ");
+                  Console.WriteLine("");
+                  Console.WriteLine("Bad choice. VERY bad choice.");
+                  Console.WriteLine("");
+                  
+              }
         }
         
     }
