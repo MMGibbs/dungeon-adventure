@@ -103,7 +103,9 @@ public class HelloWorld
               choice = Console.ReadLine();
               if (choice == "SWIIIM!")
               {
-                  Console.WriteLine("You wade backwards, eyes set on the finned beast, in hopes to get out the water before you become breakfast. After haveing the most intense staring competition of your life, you find yourself back on the ground as the shark wanders away. Guess you are a wise guy.");
+                  Console.WriteLine("You wade backwards, eyes set on the finned beast, in hopes to get out the water before you become breakfast. After having the most intense staring competition of your life, you find yourself back on the ground as the shark wanders away. Guess you are a wise guy.");
+                  Console.WriteLine("");
+                  Console.WriteLine("Time to go. You feel glad to be leave with your life.");
               }
               else
               {
@@ -111,8 +113,16 @@ public class HelloWorld
                   Console.WriteLine("");
                   Console.WriteLine("Bad choice. VERY bad choice.");
                   Console.WriteLine("");
+                  Console.WriteLine("You swear the shark is giving you evil eyes before it begins to approach you. In a panic, You flail about in the water and charge in a random direction (you are quite disoriented). Though you're looking forwards, you can tell it's following you, and it bites at you, nipping your tattered shoes and tearing away your damp clothes. By some MIRACLE, you get out the pool with only a few scratches, but you are deeply shaken. I told you to choose WISELY, not whatever the hell you did.");
+                  Console.WriteLine("");
+                  Console.WriteLine("You escaped, but barely with your life. ");
                   
               }
+              
+        }
+        else
+        {
+            Console.WriteLine("You decide to stay dry, and though you feel slightly regretful, you think youu made the right choice. I agree.");
         }
         
     }
