@@ -2,48 +2,72 @@
 // Write, Edit and Run your C# code using C# Online Compiler
 
 using System;
+using System.Xml.Serialization;
 
 public class HelloWorld
 {
+    public static string name = "";
+    public static string goatName = "";
+    public static bool seenRoom2 = false;
+    public static bool seenRoom3 = false;
+    public static bool seenRoom4 = false;
+    public static bool seenRoom5 = false;
+    public static bool seenRoom6 = false;
+
     public static void Main(string[] args)
     {
+       // string word = "wow";
         string room = "room1";
         Console.WriteLine("You wake up on a cold, hard floor in a dark room. Your head is pounding, and you can't remember how you got here.");
         Console.WriteLine("");
         Console.WriteLine("Actually, you can't remember anything...");
         Console.WriteLine("");
         Console.WriteLine("Hey, what's your name?");
-        string playerName = Console.ReadLine();
+        name = Console.ReadLine();
         Console.WriteLine("");
         Console.WriteLine("You look around the room. ");
-        room1(playerName);
+        room1();
     }
-    
-    static void room1 (string name)
+
+    static void room1()
     {
-        Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / Right Door / Left Door / Look Around Again");
+        Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / Right Door / Left Door / Look Around");
         string choice = Console.ReadLine();
         if (choice == "Left Door")
         {
-            room2(name);
+            hasBeenBefore(2);
         }
         else if (choice == "Right Door")
         {
-            room4(name);
+            hasBeenBefore(4);
         }
         else if (choice == "Look Around")
         {
             Console.WriteLine("You double check you haven't missed anything, and check behind. You can make out a secret door *gasp*");
             Console.WriteLine("You attempt to go through, but it requires a code... better come back later...");
             Console.WriteLine("Maybe the code will be in one of the other rooms.");
+            Console.WriteLine("Choose a door. Left Door / Right Door");
+            choice = Console.ReadLine();
+            if (choice == "Left Door")
+            {
+                hasBeenBefore(2);
+            }
+            else if (choice == "Right Door")
+            {
+                hasBeenBefore(4);
+            }
+            else
+            {
+                hasBeenBefore(3);
+            }
         }
         else
         {
-            room3(name);
+            hasBeenBefore(3);
         }
-    }    
-    
-    static void room2 (string name)
+    }
+
+    static void room2()
     {
         Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
         Console.WriteLine("");
@@ -58,7 +82,7 @@ public class HelloWorld
         {
             Console.WriteLine("You take the only other door out. ");
             Console.WriteLine("");
-            room4(name);
+            room4();
         }
         else
         {
@@ -67,22 +91,22 @@ public class HelloWorld
             Console.WriteLine("It's... a goat...");
             Console.WriteLine("");
             Console.WriteLine("It's only small, as tall as your knee, and you decide that this is better than treasure. A new companion! What do you name it? ");
-            string goatName = Console.ReadLine();
+            goatName = Console.ReadLine();
             Console.WriteLine("");
             Console.WriteLine("You pick {0} up and decide to leave. Y'all are inseparable already!", goatName);
             Console.WriteLine("");
-            room3(name);
+            room3();
         }
-    }    
+    }
 
-    static void room3 (string name)
+    static void room3()
     {
         Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
         Console.WriteLine("");
         Console.WriteLine("'Room 3'");
     }
 
-    static void room4 (string name)
+    static void room4()
     {
         Console.WriteLine("You approach the door. As you near it, you can make out an inscription: ");
         Console.WriteLine("");
@@ -95,35 +119,138 @@ public class HelloWorld
         string choice = Console.ReadLine();
         if (choice == "Swim")
         {
-          Console.WriteLine("The pool is irresistable. You jump in, and the icy water cools your entire body, relaxation sweeping over you in waves. You begin to float on your back, and your eyes close almost involuntarily. You could fall asleep when you notice a dark, thin shape appear on the water's surface. ");
-          Console.WriteLine("");
-          Console.WriteLine("You shoot up, adrenaline pumping, and squint. The object becomes clear; it's a fin.");
-          Console.WriteLine("");
-          Console.WriteLine("One thing they usually don't teach you in school is how to escape becoming shark feed when you're in the middle of a large, deep pool in a dark room where no-one can hear you scream. Why is it even here?! How did neither of us notice it sooner?! I guess you could try to swim out to the edges, get out of the water, but what if it chases you?  Then you're dooooone, dude. Maybe you could just kinda... drift there? It might lose interest. Or it will see an easy kill. Or, maybe, it will just want to grab a little taste to figure out whether you're food or not. Good luck, {0}, my friend, choose wisely. Freeze/ SWIIIM!", name);
-              choice = Console.ReadLine();
-              if (choice == "SWIIIM!")
-              {
-                  Console.WriteLine("You wade backwards, eyes set on the finned beast, in hopes to get out the water before you become breakfast. After having the most intense staring competition of your life, you find yourself back on the ground as the shark wanders away. Guess you are a wise guy.");
-                  Console.WriteLine("");
-                  Console.WriteLine("Time to go. You feel glad to be leave with your life.");
-              }
-              else
-              {
-                  Console.WriteLine("You just think to freeze. There seems to be no chance of outswimming it, so you decide to wait for it to lose interest. ");
-                  Console.WriteLine("");
-                  Console.WriteLine("Bad choice. VERY bad choice.");
-                  Console.WriteLine("");
-                  Console.WriteLine("You swear the shark is giving you evil eyes before it begins to approach you. In a panic, You flail about in the water and charge in a random direction (you are quite disoriented). Though you're looking forwards, you can tell it's following you, and it bites at you, nipping your tattered shoes and tearing away your damp clothes. By some MIRACLE, you get out the pool with only a few scratches, but you are deeply shaken. I told you to choose WISELY, not whatever the hell you did.");
-                  Console.WriteLine("");
-                  Console.WriteLine("You escaped, but barely with your life. ");
-                  
-              }
-              
+            Console.WriteLine("The pool is irresistable. You jump in, and the icy water cools your entire body, relaxation sweeping over you in waves. You begin to float on your back, and your eyes close almost involuntarily. You could fall asleep when you notice a dark, thin shape appear on the water's surface. ");
+            Console.WriteLine("");
+            Console.WriteLine("You shoot up, adrenaline pumping, and squint. The object becomes clear; it's a fin.");
+            Console.WriteLine("");
+            Console.WriteLine("One thing they usually don't teach you in school is how to escape becoming shark feed when you're in the middle of a large, deep pool in a dark room where no-one can hear you scream. Why is it even here?! How did neither of us notice it sooner?! I guess you could try to swim out to the edges, get out of the water, but what if it chases you?  Then you're dooooone, dude. Maybe you could just kinda... drift there? It might lose interest. Or it will see an easy kill. Or, maybe, it will just want to grab a little taste to figure out whether you're food or not. Good luck, {0}, my friend, choose wisely. Freeze/ SWIIIM!", name);
+            choice = Console.ReadLine();
+            if (choice == "SWIIIM!")
+            {
+                Console.WriteLine("You wade backwards, eyes set on the finned beast, in hopes to get out the water before you become breakfast. After having the most intense staring competition of your life, you find yourself back on the ground as the shark wanders away. Guess you are a wise guy.");
+                Console.WriteLine("");
+                Console.WriteLine("Time to go. You feel glad to be leave with your life.");
+            }
+            else
+            {
+                Console.WriteLine("You just think to freeze. There seems to be no chance of outswimming it, so you decide to wait for it to lose interest. ");
+                Console.WriteLine("");
+                Console.WriteLine("Bad choice. VERY bad choice.");
+                Console.WriteLine("");
+                Console.WriteLine("You swear the shark is giving you evil eyes before it begins to approach you. In a panic, You flail about in the water and charge in a random direction (you are quite disoriented). Though you're looking forwards, you can tell it's following you, and it bites at you, nipping your tattered shoes and tearing away your damp clothes. By some MIRACLE, you get out the pool with only a few scratches, but you are deeply shaken. I told you to choose WISELY, not whatever the hell you did.");
+                Console.WriteLine("");
+                Console.WriteLine("You escaped, but barely with your life. ");
+
+            }
+
         }
         else
         {
-            Console.WriteLine("You decide to stay dry, and though you feel slightly regretful, you think youu made the right choice. I agree.");
+            Console.WriteLine("You decide to stay dry, and though you feel slightly regretful, you think you made the right choice. I agree.");
         }
+        Console.WriteLine("");
+        Console.WriteLine("Pick another door. ");
+
+    }
+
+    static void hasBeenBefore(int roomNumber)
+    {
         
+        switch (roomNumber)
+        {
+            case 1:
+                Console.WriteLine("This door leads back to Room 1. Do you want to go back?");
+                string choice = Console.ReadLine();
+                if (choice == "yes")
+                {
+                    room1();
+                }
+                break;
+
+            case 2:
+                if (seenRoom2 == true)
+                {
+                    Console.WriteLine("This door leads back to Room 2. Do you want to go back?");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        room2();
+                    }
+                }
+                else
+                {
+                    room2();
+                }
+                
+                break;
+
+            case 3:
+                if (seenRoom3 == true)
+                {
+                    Console.WriteLine("This door leads back to Room 3. Do you want to go back?");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        room3();
+                    }
+                }
+                else
+                {
+                    room3();
+                }
+
+                break;
+
+            case 4:
+                if (seenRoom4 == true)
+                {
+                    Console.WriteLine("This door leads back to Room 4. Do you want to go back?");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        room4();
+                    }
+                }
+                else
+                {
+                    room4();
+                }
+
+                break;
+
+            case 5:
+                if (seenRoom5 == true)
+                {
+                    Console.WriteLine("This door leads back to Room 5. Do you want to go back?");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                      //  room5();
+                    }
+                }
+                else
+                {
+                  //  room5();
+                }
+
+                break;
+
+            case 6:
+                if (seenRoom6 == true)
+                {
+                    Console.WriteLine("This door leads back to Room 6. Do you want to go back?");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        //  room6();
+                    }
+                }
+                else
+                {
+                    //  room6();
+                }
+
+                break;
+        }
     }
 }
