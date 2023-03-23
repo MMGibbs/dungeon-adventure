@@ -17,7 +17,7 @@ public class HelloWorld
 
     public static void Main(string[] args)
     {
-       // string word = "wow";
+        // string word = "wow";
         string room = "room1";
         Console.WriteLine("You wake up on a cold, hard floor in a dark room. Your head is pounding, and you can't remember how you got here.");
         Console.WriteLine("");
@@ -33,44 +33,46 @@ public class HelloWorld
     static void room1()
     {
         chosenNextRoom = false;
-        while (chosenNextRoom == false){
-          Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / East Door / West Door / Look Around");
-        string choice = Console.ReadLine();
-        if (choice == "West Door")
+        Console.WriteLine("Room 1");
+        while (chosenNextRoom == false)
         {
-            hasBeenBefore(4);
-        }
-      else if (choice == "East Door")
-        {
-            hasBeenBefore(2);
-        }
-        else if (choice == "Look Around")
-        {
-            Console.WriteLine("You double check you haven't missed anything, and check behind. You can make out a secret door *gasp*");
-            Console.WriteLine("You attempt to go through, but it requires a code... better come back later...");
-            Console.WriteLine("Maybe the code will be in one of the other rooms.");
-            Console.WriteLine("Choose a door. Left Door / Right Door");
-            choice = Console.ReadLine();
-            if (choice == "Left Door")
-            {
-                hasBeenBefore(2);
-            }
-            else if (choice == "Right Door")
+            Console.WriteLine("There are three doors. Do you exit through one of them, or look again? Door Ahead / East Door / West Door / Look Around");
+            string choice = Console.ReadLine();
+            if (choice == "West Door")
             {
                 hasBeenBefore(4);
+            }
+            else if (choice == "East Door")
+            {
+                room2();
+            }
+            else if (choice == "Look Around")
+            {
+                Console.WriteLine("You double check you haven't missed anything, and check behind. You can make out a secret door *gasp*");
+                Console.WriteLine("You attempt to go through, but it requires a code... better come back later...");
+                Console.WriteLine("Maybe the code will be in one of the other rooms.");
+                Console.WriteLine("Choose a door. West Door / East Door");
+                choice = Console.ReadLine();
+                if (choice == "West Door")
+                {
+                    hasBeenBefore(4);
+                }
+                else if (choice == "East Door")
+                {
+                    hasBeenBefore(2);
+                }
+                else
+                {
+                    hasBeenBefore(3);
+                }
             }
             else
             {
                 hasBeenBefore(3);
             }
         }
-        else
-        {
-            hasBeenBefore(3);
-        }
     }
-        }
-        
+
 
     static void room2()
     {
@@ -95,16 +97,10 @@ public class HelloWorld
             Console.WriteLine("");
             Console.WriteLine("You pick {0} up and decide to leave. Y'all are inseparable already!", goatName);
             Console.WriteLine("");
-            
+
         }
-        Console.WriteLine("Time to go. Choose a door. North Door / West Door");
-        choice = Console.ReadLine();
-        if (choice == "North Door"){
-          hasBeenBefore(1);
-        }
-        else{
-          hasBeenBefore(3);
-        }
+        doorOptions(2);
+
     }
 
     static void room3()
@@ -159,20 +155,26 @@ public class HelloWorld
             Console.WriteLine("You decide to stay dry, and though you feel slightly regretful, you think you made the right choice. I agree.");
         }
         Console.WriteLine("");
-        Console.WriteLine("Pick another door. South Door / Right Door / North Door");
+        Console.WriteLine("Pick another door. South Door / East Door / North Door");
         choice = Console.ReadLine();
-        if (choice == "South Door"){
-          hasBeenBefore(3);
+        if (choice == "South Door")
+        {
+            hasBeenBefore(5);
         }
-        else if (choice == "South Door"){
-        hasBeenBefore(5);
+        else if (choice == "North Door")
+        {
+            hasBeenBefore(1);
+        }
+        else
+        {
+            hasBeenBefore(3);
         }
 
     }
 
     static void hasBeenBefore(int roomNumber)
     {
-        
+
         switch (roomNumber)
         {
             case 1:
@@ -198,7 +200,7 @@ public class HelloWorld
                 {
                     room2();
                 }
-                
+
                 break;
 
             case 3:
@@ -242,12 +244,12 @@ public class HelloWorld
                     choice = Console.ReadLine();
                     if (choice == "yes")
                     {
-                      //  room5();
+                        //  room5();
                     }
                 }
                 else
                 {
-                  //  room5();
+                    //  room5();
                 }
 
                 break;
@@ -270,4 +272,29 @@ public class HelloWorld
                 break;
         }
     }
+
+    static void doorOptions(int currentlyIn)
+    {
+        string choice = " ";
+        switch (currentlyIn)
+        {
+            case 2:
+                Console.WriteLine("Time to go. Choose a door. North Door / West Door");
+                choice = Console.ReadLine();
+                if (choice == "North Door")
+                {
+                    hasBeenBefore(1);
+                }
+                else
+                {
+                    hasBeenBefore(3);
+                }
+                break;
+
+
+        }
+    }
+
+    
+    
 }
